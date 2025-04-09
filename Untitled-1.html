@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sichere .io Spiele</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fullscreen-btn {
+      @apply mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-lg text-sm;
+    }
+    .start-btn {
+      @apply mt-2 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-lg text-sm;
+    }
+    .game-frame {
+      display: none;
+    }
+  </style>
+  <script>
+    function startGame(id) {
+      const frame = document.getElementById(id);
+      frame.style.display = 'block';
+      document.getElementById('start-' + id).style.display = 'none';
+    }
+    function goFullscreen(id) {
+      const el = document.getElementById(id);
+      if (el.requestFullscreen) {
+        el.requestFullscreen();
+      } else if (el.mozRequestFullScreen) {
+        el.mozRequestFullScreen();
+      } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
+      } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen();
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-6">
+  <h1 class="text-4xl font-bold mb-4">🎮 Sichere .io-Spiele</h1>
+  <p class="text-gray-300 mb-6 max-w-xl text-center">
+    Spiele beliebte .io-Spiele eingebettet – mit Fokus auf Privatsphäre. Kein Umgehen von Sperren – nur Datenschutz. 🛡️
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
+    <!-- Slither.io -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-xl">
+      <h2 class="text-xl font-semibold mb-2">Slither.io</h2>
+      <button id="start-slither" class="start-btn" onclick="startGame('slither')">▶️ Spiel starten</button>
+      <iframe id="slither" src="https://www.slither.io" class="w-full h-96 rounded-lg game-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms" loading="lazy"></iframe>
+      <button class="fullscreen-btn" onclick="goFullscreen('slither')">🔳 Vollbild</button>
+    </div>
+
+    <!-- Krunker.io -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-xl">
+      <h2 class="text-xl font-semibold mb-2">Krunker.io</h2>
+      <button id="start-krunker" class="start-btn" onclick="startGame('krunker')">▶️ Spiel starten</button>
+      <iframe id="krunker" src="https://www.krunker.io" class="w-full h-96 rounded-lg game-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms" loading="lazy"></iframe>
+      <button class="fullscreen-btn" onclick="goFullscreen('krunker')">🔳 Vollbild</button>
+    </div>
+
+    <!-- Venge.io -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-xl">
+      <h2 class="text-xl font-semibold mb-2">Venge.io</h2>
+      <button id="start-venge" class="start-btn" onclick="startGame('venge')">▶️ Spiel starten</button>
+      <iframe id="venge" src="https://www.venge.io" class="w-full h-96 rounded-lg game-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms" loading="lazy"></iframe>
+      <button class="fullscreen-btn" onclick="goFullscreen('venge')">🔳 Vollbild</button>
+    </div>
+
+    <!-- 1v1.lol -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-xl">
+      <h2 class="text-xl font-semibold mb-2">1v1.lol</h2>
+      <button id="start-lol" class="start-btn" onclick="startGame('lol')">▶️ Spiel starten</button>
+      <iframe id="lol" src="https://1v1.lol" class="w-full h-96 rounded-lg game-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms" loading="lazy"></iframe>
+      <button class="fullscreen-btn" onclick="goFullscreen('lol')">🔳 Vollbild</button>
+    </div>
+  </div>
+
+  <p class="text-sm text-gray-500 mt-10 max-w-lg text-center">
+    Hinweis: Die eingebetteten Spiele werden aktuell ohne Proxy angezeigt, da der zuvor genutzte Webproxy nicht erreichbar ist. Für besseren Schutz deiner Privatsphäre kannst du einen VPN wie <a href="https://protonvpn.com/free-vpn" target="_blank" class="underline">ProtonVPN Free</a> nutzen.
+  </p>
+</body>
+</html>
